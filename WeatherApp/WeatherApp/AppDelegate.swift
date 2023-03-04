@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        let rootVC = CityListViewController()
+        let rootVC = AddCityViewController()
         let navVC = UINavigationController(rootViewController: rootVC)
         self.window?.rootViewController = navVC
         return true
