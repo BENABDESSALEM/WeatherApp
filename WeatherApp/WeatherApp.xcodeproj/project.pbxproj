@@ -145,6 +145,51 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		DB061B3F29B4EE4700159283 /* CityListVC */ = {
+			isa = PBXGroup;
+			children = (
+				DBD13D3629B35C460050C628 /* CityListViewController.swift */,
+				DBD13D3729B35C460050C628 /* CityListViewController.xib */,
+			);
+			path = CityListVC;
+			sourceTree = "<group>";
+		};
+		DB061B4029B4EE7000159283 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB061B3F29B4EE4700159283 /* CityListVC */,
+				DBD13D6F29B3BF5F0050C628 /* CityCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DB061B4129B4EEA400159283 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DBD13D3A29B35C7C0050C628 /* CityWeatherDetailsViewController.swift */,
+				DBD13D3B29B35C7C0050C628 /* CityWeatherDetailsViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DB061B4229B4EF0E00159283 /* AddCityVC */ = {
+			isa = PBXGroup;
+			children = (
+				DBD13D3229B35C2A0050C628 /* AddCityViewController.swift */,
+				DBD13D3329B35C2A0050C628 /* AddCityViewController.xib */,
+			);
+			path = AddCityVC;
+			sourceTree = "<group>";
+		};
+		DB061B4329B4EF4200159283 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DB061B4229B4EF0E00159283 /* AddCityVC */,
+				DBD13D5029B37C780050C628 /* AddCityCell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		DBD13CE729B34FD80050C628 = {
 			isa = PBXGroup;
 			children = (
@@ -262,10 +307,8 @@
 		DBD13D2E29B35B830050C628 /* AddCity */ = {
 			isa = PBXGroup;
 			children = (
-				DBD13D3229B35C2A0050C628 /* AddCityViewController.swift */,
-				DBD13D3329B35C2A0050C628 /* AddCityViewController.xib */,
-				DBD13D5029B37C780050C628 /* AddCityCell */,
-				DBD13D3E29B363490050C628 /* ViewModels */,
+				DB061B4329B4EF4200159283 /* View */,
+				DBD13D3E29B363490050C628 /* ViewModel */,
 			);
 			path = AddCity;
 			sourceTree = "<group>";
@@ -273,8 +316,7 @@
 		DBD13D2F29B35BA40050C628 /* CityWeatherDetails */ = {
 			isa = PBXGroup;
 			children = (
-				DBD13D3A29B35C7C0050C628 /* CityWeatherDetailsViewController.swift */,
-				DBD13D3B29B35C7C0050C628 /* CityWeatherDetailsViewController.xib */,
+				DB061B4129B4EEA400159283 /* View */,
 				DB061B3C29B4C92000159283 /* ViewModel */,
 			);
 			path = CityWeatherDetails;
@@ -283,21 +325,19 @@
 		DBD13D3029B35BC50050C628 /* CityList */ = {
 			isa = PBXGroup;
 			children = (
-				DBD13D3629B35C460050C628 /* CityListViewController.swift */,
-				DBD13D3729B35C460050C628 /* CityListViewController.xib */,
-				DBD13D6F29B3BF5F0050C628 /* CityCell */,
+				DB061B4029B4EE7000159283 /* View */,
 				DBD13D6C29B3BC710050C628 /* ViewModel */,
 			);
 			path = CityList;
 			sourceTree = "<group>";
 		};
-		DBD13D3E29B363490050C628 /* ViewModels */ = {
+		DBD13D3E29B363490050C628 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
 				DBD13D3F29B363730050C628 /* AddCityViewModel.swift */,
 				DBD13D6829B39D8C0050C628 /* SearchResultViewModel.swift */,
 			);
-			path = ViewModels;
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		DBD13D4529B37A620050C628 /* Extensions */ = {
