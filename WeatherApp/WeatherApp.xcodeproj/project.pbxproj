@@ -223,7 +223,6 @@
 				DBD13D2929B3597A0050C628 /* Models */,
 				DBD13D2829B3593F0050C628 /* Utilities */,
 				DBD13CF929B34FD80050C628 /* Main.storyboard */,
-				DBD13CFF29B34FDA0050C628 /* Assets.xcassets */,
 				DBD13D0129B34FDA0050C628 /* LaunchScreen.storyboard */,
 				DBD13D0429B34FDA0050C628 /* Info.plist */,
 				DBD13CFC29B34FD80050C628 /* WeatherApp.xcdatamodeld */,
@@ -274,6 +273,7 @@
 		DBD13D2A29B359A00050C628 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				DBD13CFF29B34FDA0050C628 /* Assets.xcassets */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
