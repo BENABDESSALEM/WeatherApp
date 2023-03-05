@@ -55,13 +55,3 @@ class CityWeatherDetailsViewController: UIViewController {
         }
     }
 }
-
-extension UILabel{
-    func setAttributedTextWith(tille:String,subtitle:String,unit:String) {
-        let heading = "\(tille)"
-        let content = "\n\n\(subtitle) \(unit)"
-        let attributedText = NSMutableAttributedString(string: heading, attributes: [NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 20)])
-        attributedText.append(NSAttributedString(string: content, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 15), NSAttributedString.Key.foregroundColor: UIColor.white]))
-        self.attributedText = attributedText
-    }
-}
