@@ -29,7 +29,7 @@ class CityListViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setGradientBackground()
+        view.setBackgroundGradient(colors: appColors, isVertical: true)
     }
 }
 

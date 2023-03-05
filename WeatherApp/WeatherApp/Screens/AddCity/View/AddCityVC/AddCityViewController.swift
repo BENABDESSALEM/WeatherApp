@@ -24,7 +24,7 @@ class AddCityViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setGradientBackground()
+        view.setBackgroundGradient(colors: appColors, isVertical: true)
         self.navigationController?.navigationBar.tintColor = .white
     }
     

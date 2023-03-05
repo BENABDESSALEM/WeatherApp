@@ -27,7 +27,7 @@ class CityWeatherDetailsViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        setGradientBackground()
+        view.setBackgroundGradient(colors: appColors, isVertical: true)
     }
     
     // MARK: SetUpView
