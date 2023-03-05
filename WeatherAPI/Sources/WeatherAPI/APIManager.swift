@@ -19,7 +19,6 @@ protocol ApiProtocol {
 public protocol ApiWeatherProtocol {
     
 }
-
 public protocol ApiForecastProtocol {
     
 }
@@ -85,9 +84,7 @@ public class APIManager: ApiProtocol {
     func getEndpoint() -> String {
         return "\(apiUrl)/data/\(version)/"
     }
-    func getGeoEndpoint() -> String {
-        return "\(apiUrl)/geo/1.0/"
-    }
+
     /**
      Add defaultParameter for all query
      */
