@@ -91,7 +91,9 @@ extension CityListViewController: UITableViewDataSource {
 
 extension CityListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
+        let cityWeatherVC = CityWeatherDetailsViewController(nibName: "CityWeatherDetailsViewController", bundle: nil)
+        cityWeatherVC.viewModel.weather = viewModel.addedCities.value[indexPath.row]
+        self.navigationController!.pushViewController(cityWeatherVC, animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
