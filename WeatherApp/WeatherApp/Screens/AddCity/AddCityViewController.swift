@@ -22,6 +22,12 @@ class AddCityViewController: UIViewController {
         setupBindings()
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        setGradientBackground()
+        self.navigationController?.navigationBar.tintColor = .white
+    }
+    
     // MARK: IBActions.
     
     @IBAction func searchButtonPressed(_ sender: Any) {
@@ -38,6 +44,7 @@ extension AddCityViewController {
         addCityTableView.delegate = self
         addCityTableView.register(AddCityTableViewCell.nib(), forCellReuseIdentifier: AddCityTableViewCell.cellId)
         addCityTableView.separatorColor = .clear
+        hideKeyboardWhenTappedAround()
     }
     
     func setupBindings() {
@@ -59,6 +66,7 @@ extension AddCityViewController: UITableViewDataSource {
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
             let item = viewModel.getSearchResultVM(at: indexPath.row)
             let cell = tableView.dequeueReusableCell(withIdentifier: AddCityTableViewCell.cellId, for: indexPath) as! AddCityTableViewCell
+            cell.containerView.layer.cornerRadius = 10
             cell.cityName.text = item.trackName
             cell.selectionStyle = .none
             return cell
@@ -69,6 +77,12 @@ extension AddCityViewController: UITableViewDataSource {
 
 extension AddCityViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        let cityListVC = navigationController!.viewControllers.filter { $0 is CityListViewController }.first! as? CityListViewController
+        cityListVC?.viewModel.addedCities.value.append( viewModel.results.value[indexPath.row])
+        navigationController!.popToViewController(cityListVC!, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 85
     }
 }

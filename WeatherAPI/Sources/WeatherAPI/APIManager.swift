@@ -104,7 +104,7 @@ public class APIManager: ApiProtocol {
         for (key, value) in parameters {
             urlComponents.queryItems?.append(URLQueryItem(name: key, value: (String(describing: value))))
         }
-        
+        print(urlComponents.url!,parameters)
         urlSession.dataTask(with: urlComponents.url!) { data, response, error in
             guard let data = data else {
                 completion(Result.error(WeatherError.invalidData))

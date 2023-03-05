@@ -17,7 +17,7 @@ class AddCityViewModel {
     let weatherApi = WeatherService()
     
     var searchText: String? = nil {
-        didSet { isButtonEnabled.value = getEnabledFlowStatus() }
+        didSet { isButtonEnabled.value = isCharactersReached() }
     }
     
     // MARK: SearchAction
@@ -51,8 +51,8 @@ class AddCityViewModel {
 }
 
 private extension AddCityViewModel {
-    func getEnabledFlowStatus() -> Bool {
-        guard let gSearchText = searchText else { return false }
-        return gSearchText.count >= 3
+    func isCharactersReached() -> Bool {
+        guard let searchText = searchText else { return false }
+        return searchText.count >= 3
     }
 }

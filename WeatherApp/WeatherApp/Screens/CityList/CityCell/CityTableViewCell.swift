@@ -1,5 +1,5 @@
 //
-//  AddCityTableViewCell.swift
+//  CityTableViewCell.swift
 //  WeatherApp
 //
 //  Created by Wajih Benabdessalem on 4/3/2023.
@@ -7,14 +7,15 @@
 
 import UIKit
 
-class AddCityTableViewCell: UITableViewCell {
+class CityTableViewCell: UITableViewCell {
 
-    static let cellId = String(describing: AddCityTableViewCell.self)
+    static let cellId = String(describing: CityTableViewCell.self)
     static func nib() -> UINib { return UINib(nibName: cellId, bundle: nil) }
     
+    @IBOutlet weak var weatherImageView: UIImageView!
+    @IBOutlet weak var cityNameLabel: UILabel!
     @IBOutlet weak var containerView: UIView!
-    @IBOutlet weak var cityName: UILabel!
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -22,5 +23,4 @@ class AddCityTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
 }
