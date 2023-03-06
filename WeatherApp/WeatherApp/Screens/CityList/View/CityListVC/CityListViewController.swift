@@ -81,7 +81,6 @@ extension CityListViewController: UITableViewDataSource {
         cell.cityNameLabel.text = city.trackName
         cell.containerView.layer.cornerRadius = 10
         cell.weatherImageView.clipsToBounds = true
-        cell.weatherImageView.image = UIImage(named: city.searchResult.weather?.first?.icon ?? "")
         cell.selectionStyle = .none
         return cell
     }

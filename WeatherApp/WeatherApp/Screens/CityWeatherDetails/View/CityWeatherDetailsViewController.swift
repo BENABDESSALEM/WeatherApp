@@ -27,7 +27,7 @@ class CityWeatherDetailsViewController: UIViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        view.setBackgroundGradient(colors: appColors, isVertical: true)
+        setupBackgroundColor()
     }
     
     // MARK: SetUpView
@@ -52,6 +52,18 @@ class CityWeatherDetailsViewController: UIViewController {
         }
         if let humidityValue = viewModel.weather?.main?.humidity {
             humidityLabel.setAttributedTextWith(tille: "Humidity", subtitle: "\( humidityValue)", unit: "%")
+        }
+    }
+    
+    func setupBackgroundColor() {
+        if viewModel.weather?.weather?.first?.main == "Clear" && viewModel.weather?.clouds?.all == 0 {
+            view.setBackgroundGradient(colors: sunnyColors, isVertical: true)
+        }else if viewModel.weather?.weather?.first?.main == "Clouds" &&  viewModel.weather?.clouds?.all ?? 0 > 0 {
+            view.setBackgroundGradient(colors: cloudsColors, isVertical: true)
+        }else if viewModel.weather?.weather?.first?.main == "Rain" &&  viewModel.weather?.clouds?.all ?? 0 > 0 {
+            view.setBackgroundGradient(colors: rainColors, isVertical: true)
+        }else {
+            view.setBackgroundGradient(colors: sunnyColors, isVertical: true)
         }
     }
 }
