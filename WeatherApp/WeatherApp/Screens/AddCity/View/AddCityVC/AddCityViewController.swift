@@ -31,8 +31,7 @@ class AddCityViewController: UIViewController {
     // MARK: IBActions.
     
     @IBAction func searchButtonPressed(_ sender: Any) {
-        viewModel.searchText = searchTextField.text
-        viewModel.performSearch()
+         searchCity()
     }
 }
 
@@ -44,6 +43,8 @@ extension AddCityViewController {
         addCityTableView.delegate = self
         addCityTableView.register(AddCityTableViewCell.nib(), forCellReuseIdentifier: AddCityTableViewCell.cellId)
         addCityTableView.separatorColor = .clear
+        searchTextField.delegate = self
+        searchTextField.returnKeyType = .search
         hideKeyboardWhenTappedAround()
     }
     
@@ -51,6 +52,11 @@ extension AddCityViewController {
         addCityTableView.bindTo(viewModel.results)
         searchButton.bindTo(viewModel.isButtonEnabled)
         activityIndicator.bindTo(viewModel.isLoadingEnabled)
+    }
+    
+    func searchCity() {
+        viewModel.searchText = searchTextField.text
+        viewModel.performSearch()
     }
 }
 
@@ -84,5 +90,15 @@ extension AddCityViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 85
+    }
+}
+
+// MARK: - UITextFieldDelegate.
+
+extension AddCityViewController:UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        searchCity()
+        textField.resignFirstResponder()
+        return true
     }
 }

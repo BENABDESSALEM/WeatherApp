@@ -35,12 +35,29 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Details" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rMT-Nf-dhf">
+                                <rect key="frame" x="218" y="23.5" width="47" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01d" translatesAutoresizingMaskIntoConstraints="NO" id="SpQ-KD-wHx">
+                                <rect key="frame" x="170" y="20" width="35" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="35" id="17e-8s-wsP"/>
+                                    <constraint firstAttribute="height" constant="25" id="Wp9-2a-8ul"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="0.51088646735489962" green="0.97675918540865714" blue="1" alpha="0.21491584893079682" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="5n9-dY-i07" firstAttribute="leading" secondItem="rMT-Nf-dhf" secondAttribute="trailing" constant="5" id="DOn-Ix-Yy3"/>
                             <constraint firstAttribute="trailing" secondItem="5n9-dY-i07" secondAttribute="trailing" constant="10" id="Fzf-F0-Hcv"/>
+                            <constraint firstItem="rMT-Nf-dhf" firstAttribute="leading" secondItem="SpQ-KD-wHx" secondAttribute="trailing" constant="13" id="IkX-lk-yN7"/>
                             <constraint firstItem="abM-ba-bcD" firstAttribute="leading" secondItem="PyY-ZR-ybz" secondAttribute="leading" constant="10" id="KQR-sR-bzc"/>
+                            <constraint firstItem="rMT-Nf-dhf" firstAttribute="centerY" secondItem="5n9-dY-i07" secondAttribute="centerY" id="LkH-cj-Hkz"/>
                             <constraint firstItem="abM-ba-bcD" firstAttribute="centerY" secondItem="PyY-ZR-ybz" secondAttribute="centerY" id="mx3-db-vn1"/>
+                            <constraint firstItem="SpQ-KD-wHx" firstAttribute="centerY" secondItem="5n9-dY-i07" secondAttribute="centerY" id="nGq-z0-7NW"/>
                             <constraint firstItem="5n9-dY-i07" firstAttribute="leading" secondItem="abM-ba-bcD" secondAttribute="trailing" constant="15" id="qXS-eV-LV8"/>
                             <constraint firstItem="5n9-dY-i07" firstAttribute="centerY" secondItem="PyY-ZR-ybz" secondAttribute="centerY" id="w8e-bF-TA4"/>
                         </constraints>
@@ -59,12 +76,13 @@
             <connections>
                 <outlet property="cityNameLabel" destination="abM-ba-bcD" id="9mT-VV-vAJ"/>
                 <outlet property="containerView" destination="PyY-ZR-ybz" id="YCT-rh-XCz"/>
-                <outlet property="weatherImageView" destination="5n9-dY-i07" id="8dP-Ei-VV8"/>
+                <outlet property="weatherImageView" destination="SpQ-KD-wHx" id="Neb-ti-a1h"/>
             </connections>
             <point key="canvasLocation" x="137.68115942028987" y="143.63839285714286"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="01d" width="50" height="50"/>
         <image name="chevron.forward" catalog="system" width="96" height="128"/>
     </resources>
 </document>

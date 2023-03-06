@@ -80,6 +80,7 @@ extension CityListViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.cellId, for: indexPath) as! CityTableViewCell
         cell.cityNameLabel.text = city.trackName
         cell.containerView.layer.cornerRadius = 10
+        cell.weatherImageView.image = UIImage(named: city.searchResult.weather?.first?.icon ?? "")
         cell.weatherImageView.clipsToBounds = true
         cell.selectionStyle = .none
         return cell

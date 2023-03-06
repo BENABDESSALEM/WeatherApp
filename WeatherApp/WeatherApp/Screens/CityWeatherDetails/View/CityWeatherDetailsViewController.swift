@@ -66,7 +66,7 @@ extension CityWeatherDetailsViewController {
         }else if viewModel.weather?.weather?.first?.main == "Rain" &&  viewModel.weather?.clouds?.all ?? 0 > 0 {
             view.setBackgroundGradient(colors: rainColors, isVertical: true)
         }else {
-            view.setBackgroundGradient(colors: sunnyColors, isVertical: true)
+            view.setBackgroundGradient(colors: appColors, isVertical: true)
         }
     }
 }
