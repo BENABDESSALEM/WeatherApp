@@ -60,8 +60,8 @@ extension CityListViewController {
     }
     
     @objc func addNewCity(){
-        let CityAddVc = AddCityViewController(nibName: "AddCityViewController", bundle: nil)
-        self.navigationController!.pushViewController(CityAddVc, animated: true)
+        let cityAddVC = AddCityViewController(nibName: "AddCityViewController", bundle: nil)
+        self.navigationController!.pushViewController(cityAddVC, animated: true)
     }
 }
 

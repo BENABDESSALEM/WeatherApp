@@ -30,8 +30,11 @@ class CityWeatherDetailsViewController: UIViewController {
         setupBackgroundColor()
     }
     
-    // MARK: SetUpView
-    
+}
+
+// MARK: - Initialisation & setup methods.
+
+extension CityWeatherDetailsViewController {
     func initViews() {
         cityNameLabel.text = viewModel.weather?.name
         weatherDescLabel.text = viewModel.weather?.weather?.first?.description
