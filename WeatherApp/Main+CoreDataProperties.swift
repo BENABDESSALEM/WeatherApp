@@ -21,5 +21,6 @@ extension Main {
     @NSManaged public var temp: Double
     @NSManaged public var tempMax: Double
     @NSManaged public var tempMin: Double
+    @NSManaged public var feelLike: Double
 
 }

@@ -17,6 +17,7 @@ public class Main: NSManagedObject,Codable {
         case temp = "temp"
         case pressure = "pressure"
         case humidity = "humidity"
+        case feelLike = "feelLike"
     }
     required convenience public init(from decoder: Decoder) throws {
         // return the context from the decoder userinfo dictionary
@@ -37,6 +38,7 @@ public class Main: NSManagedObject,Codable {
             temp = try values.decodeIfPresent(Double.self, forKey: .temp)!
             pressure = try values.decodeIfPresent(Double.self, forKey: .pressure)!
             humidity = try values.decodeIfPresent(Int16.self, forKey: .humidity)!
+            feelLike = try values.decodeIfPresent(Double.self, forKey: .feelLike)!
         } catch {
             print ("error")
         }
@@ -49,6 +51,7 @@ public class Main: NSManagedObject,Codable {
             try container.encode(temp , forKey: .temp)
             try container.encode(pressure , forKey: .pressure)
             try container.encode(humidity , forKey: .humidity)
+            try container.encode(feelLike , forKey: .feelLike)
         } catch {
             print("error")
         }

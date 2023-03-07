@@ -25,7 +25,7 @@ extension Weather {
     @NSManaged public var coord: Location?
     @NSManaged public var main: Main?
     @NSManaged public var sys: Sys?
-    @NSManaged public var weather: NSSet?
+    @NSManaged public var weather: Set<WeatherDetails>?
     @NSManaged public var wind: Wind?
 
 }
