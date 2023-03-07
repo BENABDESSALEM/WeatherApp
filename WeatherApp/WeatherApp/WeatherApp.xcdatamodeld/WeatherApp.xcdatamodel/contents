@@ -32,7 +32,7 @@
         <relationship name="coord" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Location"/>
         <relationship name="main" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Main"/>
         <relationship name="sys" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Sys"/>
-        <relationship name="weather" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="WeatherDetails"/>
+        <relationship name="weather" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WeatherDetails"/>
         <relationship name="wind" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Wind"/>
     </entity>
     <entity name="WeatherDetails" representedClassName="WeatherDetails" syncable="YES">

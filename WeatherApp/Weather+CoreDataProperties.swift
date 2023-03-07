@@ -25,7 +25,24 @@ extension Weather {
     @NSManaged public var coord: Location?
     @NSManaged public var main: Main?
     @NSManaged public var sys: Sys?
-    @NSManaged public var weather: WeatherDetails?
+    @NSManaged public var weather: NSSet?
     @NSManaged public var wind: Wind?
+
+}
+
+// MARK: Generated accessors for weather
+extension Weather {
+
+    @objc(addWeatherObject:)
+    @NSManaged public func addToWeather(_ value: WeatherDetails)
+
+    @objc(removeWeatherObject:)
+    @NSManaged public func removeFromWeather(_ value: WeatherDetails)
+
+    @objc(addWeather:)
+    @NSManaged public func addToWeather(_ values: NSSet)
+
+    @objc(removeWeather:)
+    @NSManaged public func removeFromWeather(_ values: NSSet)
 
 }
