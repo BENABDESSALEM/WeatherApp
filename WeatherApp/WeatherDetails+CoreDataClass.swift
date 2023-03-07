@@ -13,10 +13,9 @@ import CoreData
 public class WeatherDetails: NSManagedObject,Codable {
     enum CodingKeys: String, CodingKey {
         case main = "main"
-        case identifier = "id"
+        case id = "id"
         case icon = "icon"
         case desc = "description"
-        
     }
     required convenience public init(from decoder: Decoder) throws {
         // return the context from the decoder userinfo dictionary
@@ -33,7 +32,7 @@ public class WeatherDetails: NSManagedObject,Codable {
         
         do {
             main = try values.decodeIfPresent(String.self, forKey: .main)!
-            identifier = try values.decodeIfPresent(Int16.self, forKey: .identifier)!
+            id = try values.decodeIfPresent(Int16.self, forKey: .id)!
             icon = try values.decodeIfPresent(String.self, forKey: .icon)!
             desc = try values.decodeIfPresent(String.self, forKey: .desc)!
         } catch {
@@ -44,7 +43,7 @@ public class WeatherDetails: NSManagedObject,Codable {
         var container = encoder.container(keyedBy: CodingKeys.self)
         do {
             try container.encode(main , forKey: .main)
-            try container.encode(identifier , forKey: .identifier)
+            try container.encode(id , forKey: .id)
             try container.encode(icon , forKey: .icon)
             try container.encode(desc , forKey: .desc)
         } catch {

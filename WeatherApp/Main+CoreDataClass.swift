@@ -12,12 +12,12 @@ import CoreData
 @objc(Main)
 public class Main: NSManagedObject,Codable {
     enum CodingKeys: String, CodingKey {
-        case tempMin = "tempMin"
-        case tempMax  = "tempMax"
+        case tempMin = "temp_min"
+        case tempMax  = "temp_max"
         case temp = "temp"
         case pressure = "pressure"
         case humidity = "humidity"
-        case feelLike = "feelLike"
+        case feelsLike = "feels_like"
     }
     required convenience public init(from decoder: Decoder) throws {
         // return the context from the decoder userinfo dictionary
@@ -36,9 +36,9 @@ public class Main: NSManagedObject,Codable {
             tempMin = try values.decodeIfPresent(Double.self, forKey: .tempMin)!
             tempMax = try values.decodeIfPresent(Double.self, forKey: .tempMax)!
             temp = try values.decodeIfPresent(Double.self, forKey: .temp)!
+            feelsLike = try values.decodeIfPresent(Double.self, forKey: .feelsLike)!
             pressure = try values.decodeIfPresent(Double.self, forKey: .pressure)!
             humidity = try values.decodeIfPresent(Int16.self, forKey: .humidity)!
-            feelLike = try values.decodeIfPresent(Double.self, forKey: .feelLike)!
         } catch {
             print ("error")
         }
@@ -49,9 +49,9 @@ public class Main: NSManagedObject,Codable {
             try container.encode(tempMin , forKey: .tempMin)
             try container.encode(tempMax , forKey: .tempMax)
             try container.encode(temp , forKey: .temp)
+            try container.encode(feelsLike , forKey: .feelsLike)
             try container.encode(pressure , forKey: .pressure)
             try container.encode(humidity , forKey: .humidity)
-            try container.encode(feelLike , forKey: .feelLike)
         } catch {
             print("error")
         }

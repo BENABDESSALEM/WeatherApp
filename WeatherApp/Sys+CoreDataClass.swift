@@ -15,8 +15,7 @@ public class Sys: NSManagedObject,Codable {
         case type = "type"
         case sunset = "sunset"
         case sunrise = "sunrise"
-        case message = "message"
-        case identifier = "id"
+        case id = "id"
         case country = "country"
     }
     required convenience public init(from decoder: Decoder) throws {
@@ -36,8 +35,7 @@ public class Sys: NSManagedObject,Codable {
             type = try values.decodeIfPresent(Int16.self, forKey: .type)!
             sunset = try values.decodeIfPresent(Int16.self, forKey: .sunset)!
             sunrise = try values.decodeIfPresent(Int16.self, forKey: .sunrise)!
-            message = try values.decodeIfPresent(Double.self, forKey: .message)!
-            identifier = try values.decodeIfPresent(Int16.self, forKey: .identifier)!
+            id = try values.decodeIfPresent(Int16.self, forKey: .id)!
             country = try values.decodeIfPresent(String.self, forKey: .country)!
         } catch {
             print ("error")
@@ -49,8 +47,7 @@ public class Sys: NSManagedObject,Codable {
             try container.encode(type , forKey: .type)
             try container.encode(sunset , forKey: .sunset)
             try container.encode(sunrise , forKey: .sunrise)
-            try container.encode(message , forKey: .message)
-            try container.encode(identifier , forKey: .identifier)
+            try container.encode(id , forKey: .id)
             try container.encode(country , forKey: .country)
         } catch {
             print("error")

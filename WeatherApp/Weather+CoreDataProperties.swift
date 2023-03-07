@@ -18,9 +18,11 @@ extension Weather {
 
     @NSManaged public var base: String?
     @NSManaged public var dt: Int16
-    @NSManaged public var identifier: Int16
+    @NSManaged public var id: Int16
     @NSManaged public var name: String?
     @NSManaged public var visibility: Int16
+    @NSManaged public var timezone: Int16
+    @NSManaged public var cod: Int16
     @NSManaged public var clouds: Clouds?
     @NSManaged public var coord: Location?
     @NSManaged public var main: Main?

@@ -17,8 +17,7 @@ extension Sys {
     }
 
     @NSManaged public var country: String?
-    @NSManaged public var identifier: Int16
-    @NSManaged public var message: Double
+    @NSManaged public var id: Int16
     @NSManaged public var sunrise: Int16
     @NSManaged public var sunset: Int16
     @NSManaged public var type: Int16

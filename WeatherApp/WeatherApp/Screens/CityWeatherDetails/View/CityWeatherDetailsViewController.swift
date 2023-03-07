@@ -46,7 +46,7 @@ extension CityWeatherDetailsViewController {
         if let speed = viewModel.weather?.wind?.speed {
             windSpeedLabel.setAttributedTextWith(tille: "Wind", subtitle: String(format: "%.0f", speed), unit: "m/h")
         }
-        if let feelLikeValue = viewModel.weather?.main?.feelLike {
+        if let feelLikeValue = viewModel.weather?.main?.feelsLike {
             let celsiusValue = viewModel.toCelsius(kelvin: feelLikeValue)
             feelLikeLabel.setAttributedTextWith(tille: "Feel like", subtitle: String(format: "%.0f °C", celsiusValue), unit: "")
         }

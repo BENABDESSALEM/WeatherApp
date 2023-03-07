@@ -18,7 +18,7 @@ extension WeatherDetails {
 
     @NSManaged public var desc: String?
     @NSManaged public var icon: String?
-    @NSManaged public var identifier: Int16
+    @NSManaged public var id: Int16
     @NSManaged public var main: String?
 
 }
