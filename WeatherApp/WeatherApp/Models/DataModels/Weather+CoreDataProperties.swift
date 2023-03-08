@@ -24,12 +24,18 @@ extension Weather {
     @NSManaged public var timezone: Int16
     @NSManaged public var cod: Int16
     @NSManaged public var clouds: Clouds?
-    @NSManaged public var coord: Location?
+    @NSManaged public var coord: Coord?
     @NSManaged public var main: Main?
     @NSManaged public var sys: Sys?
     @NSManaged public var weather: Set<WeatherDetails>?
     @NSManaged public var wind: Wind?
 
+    public var weathers: [WeatherDetails]{
+        let setOfWeather = weather
+        return setOfWeather!.sorted{
+            $0.id > $1.id
+        }
+    }
 }
 
 // MARK: Generated accessors for weather

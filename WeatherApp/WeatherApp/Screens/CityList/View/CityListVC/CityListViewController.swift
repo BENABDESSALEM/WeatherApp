@@ -25,6 +25,9 @@ class CityListViewController: UIViewController {
         super.viewWillAppear(animated)
         setupNavBar()
         viewModel.checkInfoVisibility()
+        viewModel.getPersistedCities()
+        let cities = viewModel.persistedCities.value
+        print(cities.first?.name,cities.first?.weather?.first?.icon)
     }
     
     override func viewDidLayoutSubviews() {

@@ -7,11 +7,14 @@
 
 import Foundation
 import CoreLocation
+import CoreData
+import UIKit
 
 class CityListViewModel {
     
     let results: Bindable<[Weather]> = Bindable([])
     let addedCities: Bindable<[Weather]> = Bindable([])
+    var persistedCities: Bindable<[Weather]> = Bindable([])
     let error: Bindable<String?> = Bindable(nil)
     let isButtonEnabled: Bindable<Bool> = Bindable(false)
     let isLoadingEnabled: Bindable<Bool> = Bindable(false)
@@ -30,6 +33,16 @@ class CityListViewModel {
         let addedCity = addedCities.value[index]
         return SearchResultViewModel(searchResult: addedCity)
     }
+    
+    func getPersistedCities() {
+     let request = NSFetchRequest<Weather>(entityName: "Weather")
+        do {
+            persistedCities.value =  try CoreDataManager.shared.context.fetch(request)
+        } catch let error {
+            print("Error fetching. \(error)")
+        }
+    }
+    
     func isCharactersCountReached() -> Bool {
         guard let searchText = searchText else { return false }
         return searchText.count >= 3
@@ -37,6 +50,17 @@ class CityListViewModel {
     
     func checkInfoVisibility() {
         isListAvailable.value = addedCities.value.count != 0
+    }
+    
+    func fetchPersistedCities() {
+        let request: NSFetchRequest<Weather> = Weather.fetchRequest()
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        do {
+            persistedCities.value = try context.fetch(request)
+        } catch {
+            print("failedFetchData")
+        }
     }
     
     func getMyCityWeather()  {

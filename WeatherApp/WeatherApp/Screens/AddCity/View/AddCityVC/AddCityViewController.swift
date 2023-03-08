@@ -84,7 +84,9 @@ extension AddCityViewController: UITableViewDataSource {
 extension AddCityViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cityListVC = navigationController!.viewControllers.filter { $0 is CityListViewController }.first! as? CityListViewController
-        cityListVC?.viewModel.addedCities.value.append( viewModel.results.value[indexPath.row])
+        let city = viewModel.results.value[indexPath.row]
+        viewModel.saveCity(city: city)
+        cityListVC?.viewModel.addedCities.value.append(city)
         navigationController!.popToViewController(cityListVC!, animated: true)
     }
     
