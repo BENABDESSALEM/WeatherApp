@@ -1,8 +1,8 @@
 //
-//  Sys+CoreDataProperties.swift
+//  CDSys+CoreDataProperties.swift
 //  WeatherApp
 //
-//  Created by Wajih Benabdessalem on 7/3/2023.
+//  Created by Wajih Benabdessalem on 8/3/2023.
 //
 //
 
@@ -10,10 +10,10 @@ import Foundation
 import CoreData
 
 
-extension Sys {
+extension CDSys {
 
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<Sys> {
-        return NSFetchRequest<Sys>(entityName: "Sys")
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<CDSys> {
+        return NSFetchRequest<CDSys>(entityName: "CDSys")
     }
 
     @NSManaged public var country: String?

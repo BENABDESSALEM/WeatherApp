@@ -14,7 +14,7 @@ class CityListViewModel {
     
     let results: Bindable<[Weather]> = Bindable([])
     let addedCities: Bindable<[Weather]> = Bindable([])
-    var persistedCities: Bindable<[Weather]> = Bindable([])
+    var persistedCities: Bindable<[CDWeather]> = Bindable([])
     let error: Bindable<String?> = Bindable(nil)
     let isButtonEnabled: Bindable<Bool> = Bindable(false)
     let isLoadingEnabled: Bindable<Bool> = Bindable(false)
@@ -34,8 +34,13 @@ class CityListViewModel {
         return SearchResultViewModel(searchResult: addedCity)
     }
     
+    func getStoredCity(at index: Int) -> SearchPersistedViewModel {
+        let addedCity = persistedCities.value[index]
+        return SearchPersistedViewModel(searchResult: addedCity)
+    }
+    
     func getPersistedCities() {
-     let request = NSFetchRequest<Weather>(entityName: "Weather")
+     let request = NSFetchRequest<CDWeather>(entityName: "CDWeather")
         do {
             persistedCities.value =  try CoreDataManager.shared.context.fetch(request)
         } catch let error {
@@ -49,18 +54,7 @@ class CityListViewModel {
     }
     
     func checkInfoVisibility() {
-        isListAvailable.value = addedCities.value.count != 0
-    }
-    
-    func fetchPersistedCities() {
-        let request: NSFetchRequest<Weather> = Weather.fetchRequest()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        do {
-            persistedCities.value = try context.fetch(request)
-        } catch {
-            print("failedFetchData")
-        }
+        isListAvailable.value = persistedCities.value.count != 0
     }
     
     func getMyCityWeather()  {

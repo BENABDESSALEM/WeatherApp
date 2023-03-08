@@ -24,10 +24,8 @@ class CityListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupNavBar()
-        viewModel.checkInfoVisibility()
         viewModel.getPersistedCities()
-        let cities = viewModel.persistedCities.value
-        print(cities.first?.name,cities.first?.weather?.first?.icon)
+        viewModel.checkInfoVisibility()
     }
     
     override func viewDidLayoutSubviews() {
@@ -74,12 +72,12 @@ extension CityListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView,
                    numberOfRowsInSection section: Int) -> Int {
-        return viewModel.addedCities.value.count
+        return viewModel.persistedCities.value.count
     }
     
     func tableView(_ tableView: UITableView,
                    cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let city = viewModel.getCity(at: indexPath.row)
+        let city = viewModel.getStoredCity(at: indexPath.row)
         let cell = tableView.dequeueReusableCell(withIdentifier: CityTableViewCell.cellId, for: indexPath) as! CityTableViewCell
         cell.cityNameLabel.text = city.trackName
         cell.containerView.layer.cornerRadius = 10
@@ -95,7 +93,7 @@ extension CityListViewController: UITableViewDataSource {
 extension CityListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cityWeatherVC = CityWeatherDetailsViewController(nibName: "CityWeatherDetailsViewController", bundle: nil)
-        cityWeatherVC.viewModel.weather = viewModel.addedCities.value[indexPath.row]
+        cityWeatherVC.viewModel.weather = viewModel.persistedCities.value[indexPath.row]
         self.navigationController!.pushViewController(cityWeatherVC, animated: true)
     }
     

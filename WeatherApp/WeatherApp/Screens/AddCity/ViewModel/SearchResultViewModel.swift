@@ -24,3 +24,20 @@ class SearchResultViewModel {
         searchResult.name ?? "---"
     }
 }
+
+class SearchPersistedViewModel {
+    
+    public var searchResult: CDWeather
+    
+    init(searchResult: CDWeather) {
+        self.searchResult = searchResult
+    }
+    
+    var trackName: String {
+        searchResult.name ?? "---"
+    }
+    
+    var collectionName: String {
+        searchResult.name ?? "---"
+    }
+}

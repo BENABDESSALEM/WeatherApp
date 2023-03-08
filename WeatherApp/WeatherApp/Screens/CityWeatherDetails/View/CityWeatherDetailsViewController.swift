@@ -25,6 +25,11 @@ class CityWeatherDetailsViewController: UIViewController {
         initViews()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.tintColor = .white
+    }
+    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         setupBackgroundColor()
@@ -37,7 +42,7 @@ class CityWeatherDetailsViewController: UIViewController {
 extension CityWeatherDetailsViewController {
     func initViews() {
         cityNameLabel.text = viewModel.weather?.name
-        weatherDescLabel.text = viewModel.weather?.weather?.first?.description
+        weatherDescLabel.text = viewModel.weather?.weather?.first?.desc
         weatherImageView.image = UIImage(named: viewModel.weather?.weather?.first?.icon ?? "")
         if let tempValue = viewModel.weather?.main?.temp {
             let celsiusValue = viewModel.toCelsius(kelvin: tempValue)

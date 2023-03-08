@@ -1,0 +1,15 @@
+//
+//  CDWind+CoreDataClass.swift
+//  WeatherApp
+//
+//  Created by Wajih Benabdessalem on 8/3/2023.
+//
+//
+
+import Foundation
+import CoreData
+
+@objc(CDWind)
+public class CDWind: NSManagedObject {
+
+}

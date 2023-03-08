@@ -8,7 +8,7 @@
 import Foundation
 
 class CityWeatherDetailsViewModel {
-    var weather : Weather?
+    var weather : CDWeather?
     internal let kKelvinZeroInCelsius = 273.15
     internal let kFahrenheitZeroInKelvin = -459.67
 
