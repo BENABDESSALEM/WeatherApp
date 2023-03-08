@@ -13,7 +13,7 @@ https://github.com/BENABDESSALEM/WeatherAPI
 
 #### First:
 
-import WeatherAPI in your view controller's
+Import WeatherAPI in your view controller's
 ```
 import WeatherAPI
 ```
